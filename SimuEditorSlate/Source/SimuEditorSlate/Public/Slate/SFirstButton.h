@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Widgets/SCompoundWidget.h"
-//å£°æ˜å•æ’­ä»£ç†
+//ÉùÃ÷µ¥²¥´úÀí
 DECLARE_DELEGATE(DelegateClick);
-//å£°æ˜å•æ’­ä»£ç†
+//ÉùÃ÷µ¥²¥´úÀí
 DECLARE_DELEGATE_OneParam(DelegateNext,const bool);
 class SFirstButton :public SCompoundWidget
 {
@@ -15,11 +15,11 @@ public:
 	{
 
 	}
-		SLATE_ARGUMENT(FText, TextContent)//æŒ‰é’®å†…å®¹
-		SLATE_ARGUMENT(bool, Next)//æ˜¯å¦ä¸ºä¸‹ä¸€æ­¥
-		SLATE_ARGUMENT(bool, Finish)//æ˜¯å¦å®Œæˆ
-		SLATE_EVENT(DelegateClick, OnClickFinish)//å•å‡»äº‹ä»¶
-		SLATE_EVENT(DelegateNext, OnClickNext)//å•å‡»äº‹ä»¶
+		SLATE_ARGUMENT(FText, TextContent)//°´Å¥ÄÚÈİ
+		SLATE_ARGUMENT(bool, Next)//ÊÇ·ñÎªÏÂÒ»²½
+		SLATE_ARGUMENT(bool, Finish)//ÊÇ·ñÍê³É
+		SLATE_EVENT(DelegateClick, OnClickFinish)//µ¥»÷ÊÂ¼ş
+		SLATE_EVENT(DelegateNext, OnClickNext)//µ¥»÷ÊÂ¼ş
 		SLATE_END_ARGS()
 	/**
 	 * Construct this widget
@@ -27,9 +27,9 @@ public:
 	 * @param	InArgs	The declaration data for this widget
 	 */
 	void Construct(const FArguments& InArgs);
-	FArguments Arguments;//åˆå§‹æ•°æ®
-	bool IsNext;//æ˜¯å¦ä¸ºä¸‹ä¸€æ­¥
-	bool IsFinish;//æ˜¯å¦å®Œæˆ
+	FArguments Arguments;//³õÊ¼Êı¾İ
+	bool IsNext;//ÊÇ·ñÎªÏÂÒ»²½
+	bool IsFinish;//ÊÇ·ñÍê³É
 	DelegateClick OnClicked;
 	DelegateClick ClickFinish;
 	DelegateNext  ClickNext;

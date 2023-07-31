@@ -6,25 +6,25 @@
 #include "SimuEditorSlateType.generated.h"
 
 
-/*å…³è”åœ°å›¾çš„ç»“æ„ä½“*/
+/*¹ØÁªµØÍ¼µÄ½á¹¹Ìå*/
 USTRUCT(BlueprintType)
 struct SIMUEDITORSLATE_API FSlateMapData
 {
 	GENERATED_USTRUCT_BODY()
 
-	/*åœ°å›¾åç§°*/
+	/*µØÍ¼Ãû³Æ*/
 	UPROPERTY(BlueprintReadWrite)
 		FString MapName;
 
-	/*åœ°å›¾ä¿®æ”¹æ—¶é—´*/
+	/*µØÍ¼ĞŞ¸ÄÊ±¼ä*/
 	UPROPERTY(BlueprintReadWrite)
 		FString ModificationTime;
 
-	/*æ–‡ä»¶å¤¹è·¯å¾„*/
+	/*ÎÄ¼ş¼ĞÂ·¾¶*/
 	UPROPERTY(BlueprintReadWrite)
 		FString DirectoryPath;
 
-	/*åœ°å›¾ã€ç±»å‹*/
+	/*µØÍ¼¡¢ÀàĞÍ*/
 	UPROPERTY(BlueprintReadWrite)
 		int32 TypeMap;
 

@@ -23,11 +23,11 @@ public:
 	/** IModuleInterface implementation */
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
-	//é€šç”¨Slateæ ·å¼
+	//Í¨ÓÃSlateÑùÊ½
 	TSharedPtr<SScrollBox> ScrollBoxMap;
 	TSharedPtr<SFirstCustomDialog> FirstCustomDialog;
 
-	//å…³è”åœ°å›¾åŠŸèƒ½åŒº
+	//¹ØÁªµØÍ¼¹¦ÄÜÇø
 	UConnectionMap* ConntectionMap;
 
 	void AssociatedMap();
@@ -35,14 +35,14 @@ public:
 	void OnTextSearchMap(const FText& InText, ETextCommit::Type CommitInfo);
 	
 
-	//æ‰“å¼€åº”ç”¨åŠŸèƒ½åŒº
+	//´ò¿ªÓ¦ÓÃ¹¦ÄÜÇø
 	UOpenTheApps* OpenTheApp;
 
 	void OpenTheApps();
 	/** This function will be bound to Command (by default it will bring up plugin window) */
 	void OnTextSearchOpenTheApp(const FText& InText, ETextCommit::Type CommitInfo);
 
-	//åº”ç”¨å‘å¯¼åŠŸèƒ½åŒº
+	//Ó¦ÓÃÏòµ¼¹¦ÄÜÇø
 	UApplication* Application;
 
 	void Applications();
@@ -51,24 +51,24 @@ public:
 	//	1/2
 	FString LoadMapName;
 	void LoadMapNext(FString LoadMapNames);
-	//æ–°å»ºåœ°å›¾åç§°
+	//ĞÂ½¨µØÍ¼Ãû³Æ
 	TSharedPtr<SCheckBox> NewMapCheckBox;
 	TSharedPtr<SHorizontalBox> NewMapHorizontalBox;
 	TSharedPtr<SFirstTextBlock> NewMapFirstTextBlock;
 	void OnTextNewMapChanged(const FText& InText);
-	void OnCheckStateNewMap(ECheckBoxState InNewState);//å‹¾é€‰æ¡†è§¦å‘äº‹ä»¶
+	void OnCheckStateNewMap(ECheckBoxState InNewState);//¹´Ñ¡¿ò´¥·¢ÊÂ¼ş
 	void OnTextSearchNewMap(const FText& InText, ETextCommit::Type CommitInfo);//
 	bool AllowNext;
 
-	//å…³è”å·²æœ‰åœ°å›¾
+	//¹ØÁªÒÑÓĞµØÍ¼
 	TSharedPtr<SCheckBox> LoadMapCheckBox;
 	TSharedPtr<SScrollBox> LoadMapSScrollBox;
 	void FindAllLoadMap();
-	void OnCheckStateLoadMap(ECheckBoxState InNewState);//å‹¾é€‰æ¡†è§¦å‘äº‹ä»¶
+	void OnCheckStateLoadMap(ECheckBoxState InNewState);//¹´Ñ¡¿ò´¥·¢ÊÂ¼ş
 
 
 	//2/2
-	//æ–°å»ºä¸€ä¸ªåº”ç”¨
+	//ĞÂ½¨Ò»¸öÓ¦ÓÃ
 	bool IsUINext ;
 	FString UIName;
 	TSharedPtr<SFirstTextBlock> UIFirstTextBlock;
@@ -77,7 +77,7 @@ public:
 	void OnTextSearchUI(const FText& InText, ETextCommit::Type CommitInfo);
 
 
-	//å‘å¯¼å®Œæˆæ˜¯å¦æ‰“å¼€åº”ç”¨
+	//Ïòµ¼Íê³ÉÊÇ·ñ´ò¿ªÓ¦ÓÃ
 	UFinishComplete* FinishComplete;
 	void FinishWizard();
 
@@ -85,13 +85,13 @@ public:
 	FOnClicked MyOnClick;
 	
 
-	//åˆå§‹UI
+	//³õÊ¼UI
 	UInitApps* InitTheApp;
 	void InitApps();
 	/** This function will be bound to Command (by default it will bring up plugin window) */
 	void OnTextSearchInitApps(const FText& InText, ETextCommit::Type CommitInfo);
 
-	//å¯¼å…¥ç´ ææˆåŠŸæˆ–è€…å¤±è´¥
+	//µ¼ÈëËØ²Ä³É¹¦»òÕßÊ§°Ü
 	void ImportFinish();
 
 

@@ -14,8 +14,8 @@ public:
 
 
 	}
-	SLATE_ARGUMENT(FText, TextContent)//鏂囦欢鍐呭
-	SLATE_ARGUMENT(int32, TextSize)//瀛椾綋澶у皬
+	SLATE_ARGUMENT(FText, TextContent)//文件内容
+	SLATE_ARGUMENT(int32, TextSize)//字体大小
 	SLATE_END_ARGS()
 	/**
 	 * Construct this widget
