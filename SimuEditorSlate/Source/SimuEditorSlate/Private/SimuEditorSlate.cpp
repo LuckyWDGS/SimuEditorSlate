@@ -228,7 +228,7 @@ void FSimuEditorSlateModule::Applications()
 				.AutoHeight()
 				[
 					SNew(SFirstTextBlock)
-					.TextContent(FText::FromString(L"欢迎来到公路交通数字李生应用制作向导"))
+					.TextContent(FText::FromString(L"欢迎来到公路交通数字孪生应用制作向导"))
 					.TextSize(16)
 				]
 				+ SVerticalBox::Slot()
@@ -236,7 +236,7 @@ void FSimuEditorSlateModule::Applications()
 				.AutoHeight()
 				[
 					SNew(SFirstTextBlock)
-					.TextContent(FText::FromString(L"一个交通数字李生应用由两部分组成:地图及UI逻辑。"))
+					.TextContent(FText::FromString(L"一个交通数字孪生应用由两部分组成:地图及UI逻辑。"))
 				]
 				+ SVerticalBox::Slot()
 				.Padding(300, 20, 0, 0)
@@ -281,7 +281,7 @@ void FSimuEditorSlateModule::Applications()
 				.AutoHeight()
 				[
 				SNew(SFirstTextBlock)
-				.TextContent(FText::FromString(L"地图构成了数字李生应用的三维静态场景，包括道路、标识以及周边环境等。"))
+				.TextContent(FText::FromString(L"地图构成了数字孪生应用的三维静态场景，包括道路、标识以及周边环境等。"))
 				]
 				+ SVerticalBox::Slot()
 				.Padding(100, 10, 0, 0)
@@ -415,7 +415,7 @@ void FSimuEditorSlateModule::Applications()
 				.AutoHeight()
 				[
 					SNew(SFirstTextBlock)
-					.TextContent(FText::FromString(L"UI逻辑构成了数字李生应用的UI交互以及应用逻辑。这通常定义了动态的车"))
+					.TextContent(FText::FromString(L"UI逻辑构成了数字孪生应用的UI交互以及应用逻辑。这通常定义了动态的车"))
 				]
 			+ SVerticalBox::Slot()
 				.Padding(100, 10, 0, 0)

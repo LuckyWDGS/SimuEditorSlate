@@ -62,7 +62,7 @@ FString SAssociatedMapWidget::GetAssetPath()
 	switch (TypeMap)
 	{
 	case 0:
-		return "/Game" + Right + "/Code/UMG/App_" + UBlueprintPathsLibrary::GetBaseFilename(Right);
+		return "/Game" + Right + "/UMG/App_" + UBlueprintPathsLibrary::GetBaseFilename(Right);
 		break;
 	case 1:
 		return "/Game" + Right + "/" + UBlueprintPathsLibrary::GetBaseFilename(Right);
