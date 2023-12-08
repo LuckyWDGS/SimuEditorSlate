@@ -1,4 +1,4 @@
-#include "FirstCommands.h"
+#include "Slate/FirstCommands.h"
 
 #define LOCTEXT_NAMESPACE "FirstCommands"
 

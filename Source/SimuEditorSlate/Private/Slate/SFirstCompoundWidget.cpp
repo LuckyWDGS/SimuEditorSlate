@@ -1,6 +1,6 @@
-#include "SFirstCompoundWidget.h"
-#include "SFirstButton.h"
-#include "SFirstTreeView.h"
+#include "Slate/SFirstCompoundWidget.h"
+#include "Slate/SFirstButton.h"
+#include "Slate/SFirstTreeView.h"
 
 
 void SFirstCompoundWidget::Construct(const FArguments& InArgs)

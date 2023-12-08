@@ -1,8 +1,8 @@
-#include "FirstEditor.h"
-#include "FirstCommands.h"
+#include "Slate/FirstEditor.h"
+#include "Slate/FirstCommands.h"
 #include "Framework/Notifications/NotificationManager.h"
 #include "Widgets/Notifications/SNotificationList.h"
-#include "SlateColorBrush.h"
+#include "Brushes/SlateColorBrush.h"
 
 #define LOCTEXT_NAMESPACE "FirstEditor"
  FirstEditor::FirstEditor()

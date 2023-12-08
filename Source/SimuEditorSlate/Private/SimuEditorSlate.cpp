@@ -5,10 +5,10 @@
 
 #include "FileHelpers.h"
 
-#include "SAssociatedMapWidget.h"
-#include "SFirstCompoundWidget.h"
-#include "SFirstTextBlock.h"
-#include "SFirstButton.h"
+#include "Slate/SAssociatedMapWidget.h"
+#include "Slate/SFirstCompoundWidget.h"
+#include "Slate/SFirstTextBlock.h"
+#include "Slate/SFirstButton.h"
 
 #include "Widgets/Layout/SWidgetSwitcher.h"
 
@@ -48,8 +48,10 @@ void FSimuEditorSlateModule::AssociatedMap()
 		.Style(&FSimuEditorStyle::Get().GetWidgetStyle<FScrollBoxStyle>("SimuEditorSlate.MapScrollBoxStyle"))
 		.ScrollBarStyle(&FSimuEditorStyle::Get().GetWidgetStyle<FScrollBarStyle>("SimuEditorSlate.MapScrollBarStyle"));
 	TSharedPtr<SEditableTextBox>EditableTextBox;
+	//设置字体
 	FSlateFontInfo EditableTextBoxFont = IPropertyTypeCustomizationUtils::GetBoldFont();
 	EditableTextBoxFont.Size = 12;
+
 	OnTextSearchMap(FText::FromString(""), ETextCommit::OnEnter);
 		SAssignNew(VerticalBox, SVerticalBox)//在此处定义生成。在之上引用为空指针。是因为这个对象本来就没有创建出来（安全）
 		+ SVerticalBox::Slot()
@@ -273,7 +275,7 @@ void FSimuEditorSlateModule::Applications()
 				.AutoHeight()
 				[
 				SNew(SFirstTextBlock)
-				.TextContent(FText::FromString(L"关联地图（1/2）"))
+				.TextContent(FText::FromString(L"新建地图（1/2）"))
 				.TextSize(16)
 				]
 				+ SVerticalBox::Slot()
@@ -321,7 +323,7 @@ void FSimuEditorSlateModule::Applications()
 						+ SHorizontalBox::Slot()
 						.FillWidth(0.8)
 						[
-							SNew(SEditableTextBox)
+							SAssignNew(NewEditableTextBox, SEditableTextBox)
 							.HintText(FText::FromString(L"仅支持输入字母、数字              "))
 							.Justification(ETextJustify::Left)
 							.Font(FSlateFontInfo(EditableTextBoxFont))
@@ -352,7 +354,7 @@ void FSimuEditorSlateModule::Applications()
 						.OnCheckStateChanged_Raw(this, &FSimuEditorSlateModule::OnCheckStateLoadMap)
 						[
 							SNew(SFirstTextBlock)
-							.TextContent(FText::FromString(L"关联已有地图："))
+							.TextContent(FText::FromString(L"选择已有地图："))
 						]
 					]
 				+ SHorizontalBox::Slot()
@@ -594,6 +596,7 @@ void FSimuEditorSlateModule::OnCheckStateNewMap(ECheckBoxState InNewState)
 		NewMapHorizontalBox->SetVisibility(EVisibility::Visible);
 		LoadMapSScrollBox->SetVisibility(EVisibility::Hidden);
 		LoadMapCheckBox->SetIsChecked(ECheckBoxState::Unchecked);
+		LoadMapName = NewEditableTextBox->GetText().ToString();
 		break;
 	}
 }
@@ -636,6 +639,7 @@ void FSimuEditorSlateModule::OnCheckStateLoadMap(ECheckBoxState InNewState)
 		LoadMapSScrollBox->SetVisibility(EVisibility::Hidden);
 		NewMapHorizontalBox->SetVisibility(EVisibility::Visible);
 		NewMapCheckBox->SetIsChecked(ECheckBoxState::Checked);
+		LoadMapName = NewEditableTextBox->GetText().ToString();
 		break;
 	case ECheckBoxState::Checked:
 		LoadMapSScrollBox->SetVisibility(EVisibility::Visible);
@@ -914,98 +918,6 @@ void FSimuEditorSlateModule::OnTextSearchInitApps(const FText& InText, ETextComm
 		}
 	}
 }
-
-void FSimuEditorSlateModule::ImportFinish()
-{
-	TSharedPtr<SOverlay>Overlay;
-	FSlateBrush* Image = FCoreStyle::Get().GetDefaultBrush();
-	Image->ImageSize = FVector2D(740, 460);
-	SAssignNew(WidgetSwitcher, SWidgetSwitcher);
-	SAssignNew(Overlay, SOverlay)
-		+ SOverlay::Slot()
-		[
-			SNew(SImage)
-			.Image(Image)
-		.Visibility(EVisibility::Hidden)
-		]
-	+ SOverlay::Slot()
-
-		[
-			WidgetSwitcher.ToSharedRef()
-		];
-
-	//WidgetSwitch 内容0
-	WidgetSwitcher->AddSlot(0)
-		[
-			SNew(SOverlay)
-			+ SOverlay::Slot()
-		[
-			SNew(SImage)
-			.Image(FSimuEditorStyle::Get().GetBrush("SimuEditorSlate.xiangdao"))
-		]
-	+ SOverlay::Slot()
-		[
-			SNew(SVerticalBox)
-			+ SVerticalBox::Slot()
-		.Padding(300, 40, 0, 0)
-		.AutoHeight()
-		[
-			SNew(SFirstTextBlock)
-			.TextContent(FText::FromString(L"向导已完成"))
-		.TextSize(16)
-		]
-	+ SVerticalBox::Slot()
-		.Padding(300, 50, 0, 0)
-		.AutoHeight()
-		[
-			SNew(SFirstTextBlock)
-			.TextContent(FText::FromString(L"一切准备就绪。"))
-		]
-	+ SVerticalBox::Slot()
-		.Padding(300, 20, 0, 0)
-
-		[
-			SNew(SFirstTextBlock)
-			.TextContent(FText::FromString(L"单击“完成”关闭向导，开始编辑应用。"))
-		]
-	+ SVerticalBox::Slot()
-		.FillHeight(1.0f)
-		.HAlign(EHorizontalAlignment::HAlign_Left)
-		.VAlign(EVerticalAlignment::VAlign_Bottom)
-		[
-			SNew(SHorizontalBox)
-			+ SHorizontalBox::Slot()
-		.Padding(620, 0, 0, 10)
-		.AutoWidth()
-		[
-			SNew(SFirstButton)
-			.Finish(true)
-		.TextContent(FText::FromString(L"完  成"))
-		.OnClickFinish_Lambda([&]() {
-		FinishComplete->OnCompleted.Broadcast();
-		FSlateApplication::Get().RequestDestroyWindow(FirstCustomDialog.ToSharedRef());
-			})
-
-		]
-		]
-		]
-		];
-
-	//弹出对话框
-	SAssignNew(FirstCustomDialog, SFirstCustomDialog)
-		.Title(FText::FromString(L"应用向导"))
-		.UseScrollBox(false)
-		.SizingRule(ESizingRule::FixedSize)
-		.ClientSize(FVector2D(740, 460))
-		.DialogContent(
-			Overlay
-		);
-	FirstCustomDialog->ShowModal();
-
-
-
-}
-
 
 #undef LOCTEXT_NAMESPACE
 	

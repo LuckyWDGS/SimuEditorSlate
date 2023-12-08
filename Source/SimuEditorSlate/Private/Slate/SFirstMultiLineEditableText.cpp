@@ -1,5 +1,5 @@
-#include "SFirstMultiLineEditableText.h"
-#include "SlateColorBrush.h"
+#include "Slate/SFirstMultiLineEditableText.h"
+#include "Brushes/SlateColorBrush.h"
 
 
 void SFirstMultiLineEditableText::Construct(const FArguments& InArgs)

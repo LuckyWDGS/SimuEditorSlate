@@ -65,6 +65,7 @@ TSharedRef< FSlateStyleSet > FSimuEditorStyle::Create()
 	Style->Set("SimuEditorSlate.NewApplication", new IMAGE_BRUSH(TEXT("新建应用"), Icon40x40, TintHui));
 	Style->Set("SimuEditorSlate.OpenApplication", new IMAGE_BRUSH(TEXT("打开应用"), Icon40x40, TintHui));
 	Style->Set("SimuEditorSlate.OpenUIEditor", new IMAGE_BRUSH(TEXT("打开UI编辑"), Icon40x40, TintHui));
+	Style->Set("SimuEditorSlate.Spacer", new IMAGE_BRUSH(TEXT("Spacer"), Icon22x22));
 	
 
 

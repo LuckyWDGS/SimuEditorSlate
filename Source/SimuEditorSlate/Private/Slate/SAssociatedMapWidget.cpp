@@ -1,4 +1,4 @@
-#include "SAssociatedMapWidget.h"
+#include "Slate/SAssociatedMapWidget.h"
 #include "SimuEditorStyle.h"
 #include "Kismet/KismetStringLibrary.h"
 #include "Kismet/BlueprintPathsLibrary.h"

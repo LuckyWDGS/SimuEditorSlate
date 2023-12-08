@@ -1,6 +1,6 @@
-#include "SFirstCanvas.h"
-#include "SFirstTreeView.h"
-#include "SFirstListView.h"
+#include "Slate/SFirstCanvas.h"
+#include "Slate/SFirstTreeView.h"
+#include "Slate/SFirstListView.h"
 #include "Widgets/Layout/SGridPanel.h"
 #include "Widgets/Views/STreeView.h"
 

@@ -1,6 +1,6 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "SFirstCustomDialog.h"
+#include "Slate/SFirstCustomDialog.h"
 
 #include "HAL/PlatformApplicationMisc.h"
 
